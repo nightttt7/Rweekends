@@ -19,6 +19,7 @@
 打开RStudio,左下console是控制台;左上是脚本输入界面;右上是工具栏,分别是环境,历史和连接;右下是多功能台,分别是files:查看文件,plots:显示图型,packages:当前下载和加载的包,help:帮助栏,viewer:数据预览.
 ![RStudio界面](http://img-blog.csdn.net/20180316232726813?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3NxcTUxMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 - 定制R环境
+
 ```
 # 每次执行R时会自动运行的命令，在以下文件中设置
 # path="C:/Program Files/R/R-3.3.2/etc/Rprofile.site"
@@ -39,6 +40,7 @@
 # Hello World!
 - 完成你的第一个R语言数据分析,*本章的示例代码多借鉴于 R in action*  
 - 输入以下代码并运行
+
 ```
 #这是一行注释
 if(FALSE){
@@ -86,6 +88,9 @@ cells <- c(11,12,21,22)
 mymatrix <- matrix(cells,nrow=2,ncol=2,byrow=TRUE,
                    dimnames=list(rnames,cnames))
 mymatrix
+```
+
+```
 # 输出
 #    c1 c2
 # r1 11 12
@@ -113,6 +118,7 @@ mymatrix[2,c(1,2)]
 # c1 c2 
 # 21 22 
 ```
+
 - 矩阵工具
 - 外积(矩阵/数组)
 ```
@@ -126,45 +132,33 @@ print(a %o% b)
 输出
 ```
 , , 1, 1
-
      [,1] [,2]
 [1,]    2    4
 [2,]    6    8
-
 , , 2, 1
-
      [,1] [,2]
 [1,]    6   12
 [2,]   18   24
-
 , , 1, 2
-
      [,1] [,2]
 [1,]    4    8
 [2,]   12   16
-
 , , 2, 2
-
      [,1] [,2]
 [1,]    8   16
 [2,]   24   32
 ```
-
-
 - 矩阵相乘
 ```
-print(a %*% b)
-# crossprod等同于t(a) %*% b,矢积
+print(a %*% b)  
+#crossprod等同于t(a) %*% b,矢积
 print(crossprod(a,b))
-# 生成对角矩阵
+#生成对角矩阵
 print(diag(c(1,2,3,4)))
-# 返回对角元素
+#返回对角元素
 print(diag(diag(c(1,2,3,4))))
-# 生成空矩阵
+#生成空矩阵
 print(diag(4))
-```
-输出
-```
      [,1] [,2]
 [1,]   14   20
 [2,]   30   44
@@ -183,6 +177,7 @@ print(diag(4))
 [3,]    0    0    1    0
 [4,]    0    0    0    1
 ```
+
 - 行数列数
 ```
 d <- matrix(c(1:12),nrow=3,ncol=4,byrow=TRUE)
@@ -200,25 +195,27 @@ print(ncol(d))
 [1] 4
 ```
 - 求解线性方程
+
 ```
-# solve(矩阵积,其中一个矩阵)
+#solve(矩阵积,其中一个矩阵)
 ```
 - 求逆
+
 ```
-# slove(矩阵)
+#slove(矩阵)
 ```
 - 有待添加的部分,来自R导论p41*
 ```
-# 特征值和特征向量
-# 奇异值分解和行列式
-# 最小二乘法拟合和QR 分解
-# 用cbind() 和rbind() 构建分块矩阵
-# 对数组实现连接操作的函数c()
-# 因子的频率表
+#特征值和特征向量
+#奇异值分解和行列式
+#最小二乘法拟合和QR 分解
+#用cbind() 和rbind() 构建分块矩阵
+#对数组实现连接操作的函数c()
+#因子的频率表
 ```
 
-
 ## 数组
+
 ```
 # 高维矩阵
 dim1 <- c("a1","a2")
@@ -351,23 +348,21 @@ test <- function (x,perc) (c(mean(x)-qnorm(perc)*sd(x),
 inctest <- tapply(incomes, statef, test, .95)
 print(head(inctest))
 ```
+
+```
 $act  
 [1] 41.01074 47.98926
-
 $nsw  
 [1] 39.96733 74.69933
-
 $nt   
 [1] 45.03222 65.96778
-
 $qld  
 [1] 38.49777 68.70223
-
 $sa  
 [1] 45.99077 64.00923
-
 $tas  
 [1] 59.33691 61.66309
+```
 
 - 有序因子2
 ```
@@ -448,15 +443,16 @@ fix(object)|  直接在编辑器中编辑对象
 # 导入外部数据
 - 访问内置数据
 ```
-# R 提供了大约100个内置的数据集
-# (在包datasets 中)
-# 查看内置数据集
-# data()
-
-# 可以直接访问
+#R 提供了大约100个内置的数据集
+#(在包datasets 中)
+#查看内置数据集
+#data()
+#可以直接访问
 print(head(islands))
 ```
+
 - 读取文本文件
+
 ```
 df1 <- read.table("test.txt", sep="\t",
                  header = TRUE, row.names = "id")
