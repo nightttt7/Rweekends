@@ -121,6 +121,7 @@ tapply(incomes, statef, sd)
 # 置信区间
 inv <- function (x,perc) (c(mean(x)-qnorm(perc)*sd(x), mean(x)+qnorm(perc)*sd(x)))
 inctest <- tapply(incomes, statef, test, .95)
+```
 
 # 列表 list
 ```
