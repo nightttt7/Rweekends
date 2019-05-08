@@ -103,4 +103,9 @@ dt[, lapply(.SD, sum), by=V2]
 # set
 setnames(DT,c("V2","V3"),c("V2.rating","V3.DataCamp"))
 setcolorder(DT,c("V2","V1","V4","V3"))
+# convert existing objects
+## for data.frames and lists
+setDT(df) 
+## for other structures
+as.data.table(mt) 
 ```
