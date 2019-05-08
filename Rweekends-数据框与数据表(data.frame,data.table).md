@@ -73,6 +73,23 @@ Cols.chosen = c("V1","V2")
 DT[, (Cols.chosen) := NULL]
 ```
 
-
+### 主键 key
+```
+dt <- data.table(V1=c(1,2), V2=LETTERS[1:3], V3=round(rnorm(4),2), V4=1:12, key = "V2")
+setkey(dt,V2)
+key(dt)
+haskey(dt)
+dt["A"]
+dt[c("A","C")]
+# only the first one
+DT["A", mult ="first"]
+# only the last one
+DT["A", mult = "last"]
+# not show the nomatch terms
+DT[c("A","D"), nomatch = 0]
+DT[c("A","C"), sum(V4), by=.EACHI]
+setkey(dt,V1,V2)
+dt[.(2,"C")]
+```
 
 
