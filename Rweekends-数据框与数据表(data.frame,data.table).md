@@ -30,7 +30,49 @@ patientdata[c(1,3),c(1,3)]
 ```
 
 # 数据表 data.table
-- 在我用过的各个语言的类数据框数据结构中中,这是操作最便捷的,代码量最少的
+- 在我用过的各个语言的类数据框数据结构中中,data.table是操作最便捷的,代码量最少的
+- a high-performance version of base R's data.frame with syntax and feature enhancements for ease of use, convenience and programming speed
+
+### base
+```
+library(data.table)
+
+# create a data.table
+# dt is a 12 rows, 4 cols data.table
+dt <- data.table(V1=c(1,2), V2=LETTERS[1:3], V3=round(rnorm(4),2), V4=1:12)
+
+# by rows
+dt[3:5]
+dt[3:5,]
+dt[V2 == "A"]
+dt[V2 %in% c("A","C")]
+
+# by cols
+dt[,.(V2)]
+dt[,.(V2,V3)]
+dt[,sum(V1)]
+dt[,.(sum(V1),sd(V3))]
+dt[,.(Aggregate = sum(V1), Sd.V3 = sd(V3))]
+dt[,.(V1, Sd.V3 = sd(V3))]
+
+# use by
+dt[,.(V4.Sum = sum(V4)),by=V1]
+dt[,.(V4.Sum = sum(V4)),by=.(V1,V2)]
+dt[,.(V4.Sum = sum(V4)),by=sign(V1-1)]
+dt[1:5,.(V4.Sum = sum(V4)),by=V1]
+dt[,.N,by=V1]
+
+# add & delete
+## use [] to show the result
+dt[, V1 := round(exp(V1),2)][]
+dt[, c("V1","V2") := list(round(exp(V1),2), rep(LETTERS[4:6],4))]
+dt[, ':=' (V1 = V1/5 , V2 = rep(LETTERS[7:9],4))]
+DT[, V1 := NULL]
+DT[, c("V1","V2") := NULL]
+Cols.chosen = c("V1","V2")
+DT[, (Cols.chosen) := NULL]
 ```
 
-```
+
+
+
