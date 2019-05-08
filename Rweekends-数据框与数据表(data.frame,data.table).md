@@ -92,4 +92,15 @@ setkey(dt,V1,V2)
 dt[.(2,"C")]
 ```
 
-
+### others
+```
+# .SD
+dt<- data.table(V1=c(1L,2L), V2=LETTERS[1:3],
+                V3=round(rnorm(4),4), V4=1:12)
+dt[, print(.SD), by=V2]
+dt[,.SD[c(1,.N)], by=V2]
+dt[, lapply(.SD, sum), by=V2]
+# set
+setnames(DT,c("V2","V3"),c("V2.rating","V3.DataCamp"))
+setcolorder(DT,c("V2","V1","V4","V3"))
+```
