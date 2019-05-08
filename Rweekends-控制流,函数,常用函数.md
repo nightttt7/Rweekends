@@ -45,9 +45,9 @@ my("test")
 
 ### 数学
 ```
-# random-uniform
+# random uniform
 runif(2)
-# random-normal
+# random normal
 rnorm(2)
 # 求余
 10%%3
@@ -80,6 +80,9 @@ min(x)
 max(x)
 range(x)
 quantile(x,c(.25,.5,.75))
+# Tukey's five-number summary
+summary(x)
+fivenum(x)
 # 滞后差分
 diff(x,lag=2)
 # 标准正态化
