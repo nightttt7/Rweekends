@@ -27,17 +27,17 @@ ifelse(x>0,"positive","notpositive")
 
 # switch
 switch("2",
-  "1" = "hello",
-  "2" = "hi"
-  )
+    "1" = "hello",
+    "2" = "hi"
+    )
 ```
 
 # 函数
 ```
 my <- function(name){
-  re <- paste("hello",name)
-  return(re)
-  }
+    re <- paste("hello",name)
+    return(re)
+}
 my("test")
 ```
 
