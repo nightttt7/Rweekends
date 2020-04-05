@@ -13,7 +13,9 @@
 - 基础部分将改版,变成速查表形式,进阶部分将加入更多实例
 - 为方便多平台使用,我将直接在github上编辑markdown,更新notebook
 
-
+------------2020/4/5--------------------
+- 已全面拥抱python,停止更新
+- 其他内容可访问[个人网站](https://shiqingqi.no/)
 
 # 第二版目录
 - [向量,矩阵,数组,因子,列表](https://github.com/nightttt7/Rweekends/blob/master/Rweekends-%E5%90%91%E9%87%8F%2C%E7%9F%A9%E9%98%B5%2C%E6%95%B0%E7%BB%84%2C%E5%9B%A0%E5%AD%90%2C%E5%88%97%E8%A1%A8.md)
